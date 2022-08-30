@@ -1,22 +1,31 @@
 {
   "employee": [
     {
-      "fullName": "Lena Olegovna"
+      "fullName": "Lena Olegovna",
+      "bookList": {
+      "name": "Harry Potter"}
     },
     {
-      "fullName": "Danil Nikitin"
+      "fullName": "Danil Nikitin",
+      "bookList": {
+        "name": "Lerning XML"}
+    },
+
+    {
+      "fullName": "Vlad Pak",
+      "bookList": {
+        "name": "Code"}
+
     },
     {
-      "fullName": "Vlad Pak"
+      "fullName": "Igor Alekseevich",
+      "bookList": {
+        "name": " "}
     },
     {
-      "fullName": "Vlad Pak"
-    },
-    {
-      "fullName": "Vlad Pak"
-    },
-    {
-      "fullName": "Vlad Pak"
+      "fullName": "Marina Vladimirovna",
+      "bookList": {
+        "name": ""}
     }
   ]
 }

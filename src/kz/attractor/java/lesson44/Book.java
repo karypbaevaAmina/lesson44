@@ -4,16 +4,17 @@ public class Book {
 
     private String name;
     private String author;
-
     private String status;
-
     private String employeeName;
 
-    public Book(String name, String author, String status, String employeeName) {
+    private  String year;
+
+    public Book(String name, String author, String status, String employeeName, String year) {
         this.name = name;
         this.author = author;
         this.status = status;
         this.employeeName = employeeName;
+        this.year = year;
     }
 
     public Book(String name, String status, String employeeName) {
@@ -52,6 +53,14 @@ public class Book {
 
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
     }
 }
 

@@ -1,11 +1,10 @@
 {
   "book": [
     {
-      "name": "Harry Poter",
+      "name": "Harry Potter",
       "author": " J.K.Rowling",
       "status": "given out",
       "year": 2015,
-      "category": "Children",
       "employee": {
         "fullName": "Lena Olegovna"
       }
@@ -15,7 +14,6 @@
       "author": " E.T.Ray",
       "status": "given out",
       "year": 2003,
-      "category": "WEB",
       "employee": {
         "fullName": "Danil Nikitin"
       }
@@ -25,7 +23,6 @@
       "author": " C. Petsolt",
       "status": "given out",
       "year": 2004,
-      "category": "IT",
       "employee": {
         "fullName": "Vlad Pak"
       }

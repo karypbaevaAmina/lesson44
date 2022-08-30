@@ -17,14 +17,9 @@ public class Lesson44Server extends BasicServer {
     public Lesson44Server(String host, int port) throws IOException {
         super(host, port);
         registerGet("/sample", this::freemarkerSampleHandler);
-
-        registerGet ("/book", this:: booksHandler);
-
+        registerGet ("/books", this:: booksHandler);
+        registerGet("/info", this:: infoHandler);
         registerGet("/employee", this:: employeeHandler);
-    }
-
-    private void employeeHandler(HttpExchange exchange) {
-        renderTemplate(exchange, "employee.html", getBooksDataModel());
     }
 
 
@@ -55,6 +50,14 @@ public class Lesson44Server extends BasicServer {
     private void booksHandler(HttpExchange exchange) {
         renderTemplate(exchange, "book.html", getBooksDataModel());
     }
+    private void infoHandler(HttpExchange exchange) {
+        renderTemplate(exchange, "info.html", getBooksDataModel());
+    }
+    private void employeeHandler(HttpExchange exchange) {
+        renderTemplate(exchange, "employee.html", getBooksDataModel());
+    }
+
+
 
 protected void renderTemplate(HttpExchange exchange, String templateFile, Object dataModel) {
     try {
@@ -86,7 +89,6 @@ protected void renderTemplate(HttpExchange exchange, String templateFile, Object
         e.printStackTrace();
     }
 }
-
     private SampleDataModel getSampleDataModel() {
         // возвращаем экземпляр тестовой модели-данных
         // которую freemarker будет использовать для наполнения шаблона
@@ -96,4 +98,5 @@ protected void renderTemplate(HttpExchange exchange, String templateFile, Object
     private BooksDataModel getBooksDataModel(){
         return new BooksDataModel();
     }
+
 }

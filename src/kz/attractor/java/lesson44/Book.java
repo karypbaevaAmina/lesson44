@@ -1,27 +1,40 @@
 package kz.attractor.java.lesson44;
 
+import java.util.List;
+
 public class Book {
 
     private String name;
     private String author;
-    private String status;
-    private String employeeName;
-
     private  String year;
+    private Integer id;
+    private boolean busyStatus;
+    private transient Employee employee;
 
-    public Book(String name, String author, String status, String employeeName, String year) {
+//    public Book(String name, String author) {
+//        this.name = name;
+//        this.author = author;
+//    }
+
+    public Book(String name, String author, String year) {
         this.name = name;
         this.author = author;
-        this.status = status;
-        this.employeeName = employeeName;
         this.year = year;
+
+        setEmployee();
     }
 
-    public Book(String name, String status, String employeeName) {
-        this.name = name;
-        this.status = status;
-        this.employeeName = employeeName;
+    private void setEmployee() {
+        if (busyStatus){
+            List<Employee>emp = FileServiceEmployee.readFile();
+            for (Employee employee: emp){
+                if(employee.getId().equals(this.id)){
+                    this.employee = employee;
+                }
+            }
+        }
     }
+
 
     public String getName() {
         return name;
@@ -39,28 +52,36 @@ public class Book {
         this.author = author;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getEmployeeName() {
-        return employeeName;
-    }
-
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
-    }
-
     public String getYear() {
         return year;
     }
 
     public void setYear(String year) {
         this.year = year;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public boolean isBusyStatus() {
+        return busyStatus;
+    }
+
+    public void setBusyStatus(boolean busyStatus) {
+        this.busyStatus = busyStatus;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }
 

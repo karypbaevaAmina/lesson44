@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link href="css/freemarker.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+
+</head>
+<body>
+<div class="container">
+    <table class="table table-success table-striped">
+
+        <thead>
+        <tr>
+            <th scope="col"> ID </th>
+            <th scope="col"> Name</th>
+            <th scope="col"> Email</th>
+        </tr>
+        </thead>
+
+        <tbody class="table-group-divider">
+
+        <tr>
+            <td>${employee.id!"-- не указано --"}</td>
+            <td>${employee.fullName!"-- не указано --"}</td>
+            <td> ${employee.mail"-- не указано --"}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <#if book??>
+    <table class="table table-success table-striped">
+        <p>read Book</p>
+        <#list book as book>
+            <thead>
+            <tr>
+                <th scope="col">Books</th>
+                <th scope="col">Author</th>
+                <th scope="col">Year</th>
+                <th scope="col">Busy</th>
+
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+
+            <tr>
+                <td> ${book.name!"-- не указано --"}</a></td>
+                <td> ${book.author!"-- не указано --"}</td>
+                <td> ${book.year!"-- не указано --"}</td>
+                <td> ${book.busyStatus?string('yes', 'no')}</td>
+            </tr>
+            </tbody>
+            </#list>
+    </div>
+    </#if>
+
+
+    <#if book1??>
+    <table class="table table-success table-striped">
+
+        <p>used Book</p>
+    <#list book1 as book>
+        <thead>
+        <tr>
+            <th scope="col">Books</th>
+            <th scope="col">Author</th>
+            <th scope="col">Year</th>
+            <th scope="col">Busy</th>
+
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+
+        <tr>
+            <td> ${book.name!"-- не указано --"}</a></td>
+            <td> ${book.author!"-- не указано --"}</td>
+            <td> ${book.year!"-- не указано --"}</td>
+            <td> ${book.busyStatus?string('yes', 'no')}</td>
+        </tr>
+        </tbody>
+        </#list>
+    </html>
+    </#if>
+
+</div>
+
+</body>
+</html>

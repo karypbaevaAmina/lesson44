@@ -1,4 +1,4 @@
-package kz.attractor.java.lesson44;
+package models;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

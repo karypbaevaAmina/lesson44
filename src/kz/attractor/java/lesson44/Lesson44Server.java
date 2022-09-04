@@ -8,8 +8,14 @@ import freemarker.template.TemplateExceptionHandler;
 import kz.attractor.java.server.BasicServer;
 import kz.attractor.java.server.ContentType;
 import kz.attractor.java.server.ResponseCodes;
+import models.BooksDataModel;
+import models.SampleDataModel;
 
 import java.io.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 public class Lesson44Server extends BasicServer {
     private final static Configuration freemarker = initFreeMarker();
@@ -20,6 +26,7 @@ public class Lesson44Server extends BasicServer {
         registerGet ("/books", this:: booksHandler);
         registerGet("/info", this:: infoHandler);
         registerGet("/employee", this:: employeeHandler);
+
     }
 
 
@@ -48,18 +55,24 @@ public class Lesson44Server extends BasicServer {
         renderTemplate(exchange, "sample.html", getSampleDataModel());
     }
     private void booksHandler(HttpExchange exchange) {
-        renderTemplate(exchange, "book.html", getBooksDataModel());
+        renderTemplate(exchange, "book.html", getBookDataModel());
     }
     private void infoHandler(HttpExchange exchange) {
         renderTemplate(exchange, "info.html", getBooksDataModel());
     }
     private void employeeHandler(HttpExchange exchange) {
-        renderTemplate(exchange, "employee.html", getBooksDataModel());
+        renderTemplate(exchange, "employee.html",  getEmployeesDataModel());
+    }
+
+    public Map<String, Object> getEmployeesDataModel() {
+        HashMap<String, Object> stringEmpHashMap = new HashMap<>();
+        stringEmpHashMap.put("employees", FileServiceEmployee.readFile());
+        return stringEmpHashMap;
     }
 
 
 
-protected void renderTemplate(HttpExchange exchange, String templateFile, Object dataModel) {
+    protected void renderTemplate(HttpExchange exchange, String templateFile, Object dataModel) {
     try {
         // загружаем шаблон из файла по имени.
         // шаблон должен находится по пути, указанном в конфигурации
@@ -95,8 +108,22 @@ protected void renderTemplate(HttpExchange exchange, String templateFile, Object
         return new SampleDataModel();
     }
 
+    public static Book getBookDataModel() {
+        Random random = new Random();
+        List<Book> books = new BooksDataModel().getBooks();
+        Book book = books.get(random.nextInt(books.size()));
+        return book;
+    }
+
     private BooksDataModel getBooksDataModel(){
         return new BooksDataModel();
     }
+
+
+
+
+
+
+
 
 }

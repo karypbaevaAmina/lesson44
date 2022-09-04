@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "fullName": "Lena Olegovna",
+    "usedBook": [1],
+    "readBook": [2,3],
+    "mail": "lana@gmail.com",
+    "password": "lenok"
+  },
+  {
+    "id": 2,
+    "fullName": "Danil Nikitin",
+    "usedBook": [2],
+    "readBook": [2,3],
+    "mail": "dandan@mail.ru",
+    "password": "nikitin"
+  },
+  {
+    "id": 3,
+    "fullName": "Vlad Pak",
+    "usedBook": [ ],
+    "readBook": [1,2],
+    "mail": "pak@mail.ru",
+    "password": "pakpak"
+  },
+  {
+    "id": 4,
+    "fullName": "Igor Alekseevich",
+    "usedBook": [3],
+    "readBook": [2,1],
+    "mail": "igor@gmail.com",
+    "password": "gorgor"
+  },
+  {
+    "id": 5,
+    "fullName": "Marina Vladimirovna",
+    "usedBook": [2],
+    "readBook": [1],
+    "mail": "mariwa@mail.ru",
+    "password": "marinmarin"
+  }
+]

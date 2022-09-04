@@ -12,17 +12,15 @@
 <body>
 <div class="container">
 
-    <p>Привет!</p>
-
-    <h3>У нас есть такие книги:</h3>
-
     <table class="table table-success table-striped">
         <thead>
         <tr>
             <th scope="col">#</th>
             <th scope="col">Books</th>
-            <th scope="col">Status</th>
-            <th scope="col">Given to the employee</th>
+            <th scope="col">Author</th>
+            <th scope="col">Year</th>
+            <th scope="col">Busy</th>
+
         </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -31,8 +29,9 @@
         <tr>
             <th scope="row">${book?counter}</th>
             <td> <a href = "https://localhost:9889/info"> ${book.name!"-- не указано --"}</a></td>
-            <td> ${book.status!"-- не указано --"}</td>
-            <td> ${book.employeeName!"-- не указано --"}</td>
+            <td> ${book.author!"-- не указано --"}</td>
+            <td> ${book.year!"-- не указано --"}</td>
+            <td> ${book.busyStatus?string('yes', 'no')}</td>
         </tr>
         </#list>
         </tbody>
